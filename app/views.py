@@ -21,7 +21,7 @@ full_filename = ""
 new_string = ""
 
 # Adding path to config
-app.config['INITIAL_FILE_UPLOADS'] = 'app/static/uploads' #check the size of img and ration bw text and image
+app.config['INITIAL_FILE_UPLOADS'] = 'app/static/uploads' #check the size of img and ratio bw text and image
 
 
 #routing to textractor page
@@ -44,12 +44,12 @@ def index():
 	if request.method == "POST":
 		image_upload = request.files['image_upload'] #gets the uploaded image from the index.html file named "image_upload"
 		imagename = image_upload.filename
-		image = Image.open(image_upload) #used to open image using the PIL (pyhton imaging library)
+		image = Image.open(image_upload) #used to open image using the PIL (python imaging library)
 
 		# Converting image to array
-		image_arr = np.array(image.convert('RGB')) #converting RGB image to array of prooerties of image
+		image_arr = np.array(image.convert('RGB')) #converting RGB image to array of properties of image
 		# Converting image to grayscale
-		gray_img_arr = cv2.cvtColor(image_arr, cv2.COLOR_BGR2GRAY)#converting to greyscale cuz dimensiondecreases
+		gray_img_arr = cv2.cvtColor(image_arr, cv2.COLOR_BGR2GRAY)#converting to grayscale because dimension decreases
 		#Converting image back to rbg
 		image = Image.fromarray(gray_img_arr)
 
